@@ -27,6 +27,18 @@ namespace MetroWPDemo
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
+
+            this.Loaded += MainPage_Loaded;
+
+            //Loaded -= MainPage_Loaded;
+        }
+
+        void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("Page loaded.");
+
+            MetroWPDemo.Model.Student s = new Model.Student();
+            s.Run();
         }
 
         /// <summary>
