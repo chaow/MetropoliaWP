@@ -27,6 +27,26 @@ namespace MetroWPDemo
     {
         private TransitionCollection transitions;
 
+
+        #region ResourceLoader
+
+        // static instance for loading string/text
+        private static Windows.ApplicationModel.Resources.ResourceLoader _resourceLoader = null;
+        public static Windows.ApplicationModel.Resources.ResourceLoader AppResourceLoader
+        {
+            get
+            {
+                if (_resourceLoader == null)
+                {
+                    _resourceLoader = new Windows.ApplicationModel.Resources.ResourceLoader();
+                }
+                return _resourceLoader;
+            }
+        }
+
+        #endregion
+
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
