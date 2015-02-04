@@ -7,29 +7,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
-    <ScrollViewer VerticalScrollBarVisibility="Visible" VerticalScrollMode="Enabled">
-        <Grid x:Name="LayoutRoot">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Row="0" Grid.Column="1">
-                <TextBlock Text="static string" FontSize="20" Foreground="White" />
-                <TextBlock x:Uid="TextBlock1" FontSize="20" Foreground="White" />
-            </StackPanel>
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
-            <Button Name="Button1" Content="Button 1" Grid.Column="1" HorizontalAlignment="Center" Margin="0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
-            <Button x:Name="Button2" Content="Button 2" Grid.Column="2" HorizontalAlignment="Center" Margin="0,50,0,0" Grid.Row="2"  Grid.ColumnSpan="2"/>
-            <RadioButton Content="RadioButton" HorizontalAlignment="Left" Margin="0" Grid.Row="2" VerticalAlignment="Top" Grid.Column="2" Checked="RadioButton_Checked"/>
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <Button Name="Button1" Content="First Page" Grid.Column="1" 
+                    HorizontalAlignment="Center" Margin="0" Grid.Row="1" 
+                    VerticalAlignment="Top" Click="Button_Click"/>
 
-        </Grid>
-    </ScrollViewer>
+            <Button Name="Button2" Content="Second Page" Grid.Column="2" 
+                    HorizontalAlignment="Center" Margin="0,50,0,0"
+                    Grid.Row="2" Click="Button_Click"/>
+        </StackPanel>
+
+    </Grid>
 </Page>

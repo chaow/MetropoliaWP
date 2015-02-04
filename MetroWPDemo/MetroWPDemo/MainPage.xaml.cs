@@ -29,17 +29,11 @@ namespace MetroWPDemo
             this.NavigationCacheMode = NavigationCacheMode.Required;
 
             this.Loaded += MainPage_Loaded;
-
-            //Loaded -= MainPage_Loaded;
         }
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("Page loaded.");
-
-            System.Diagnostics.Debug.WriteLine("Debug info: " + App.AppResourceLoader.GetString("DebugContent"));
-
-            Button2.Click += Button_Click;
         }
 
         /// <summary>
@@ -58,67 +52,23 @@ namespace MetroWPDemo
             // this event is handled for you.
         }
 
-        private /* async */ void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             var b = sender as Button;
             if (Button1.Name.Equals(b.Name))
             {
-                System.Diagnostics.Debug.WriteLine("Button 1");
+                // navigate to first page without passing object
+                this.Frame.Navigate(typeof(Pages.FirstPage));
             }
             else if (Button2.Name.Equals(b.Name))
             {
-                System.Diagnostics.Debug.WriteLine("Button 2");
-            }
-
-            /*
-            //Creating instance for the MessageDialog Class  
-            //and passing the message in it's Constructor  
-            Windows.UI.Popups.MessageDialog msgbox = new Windows.UI.Popups.MessageDialog("Message Box is displayed");
-            // put the dialog content
-            //msgbox.Content = "Message Box is displayed";
- 
-            //Calling the Show method of MessageDialog class  
-            //which will show the MessageBox  
-            //Message Box.
-            msgbox.Commands.Add(new Windows.UI.Popups.UICommand("Ok", 
-                        new Windows.UI.Popups.UICommandInvokedHandler(this.CommandInvokedHandler)));
-            msgbox.Commands.Add(new Windows.UI.Popups.UICommand("Quit", 
-                        new Windows.UI.Popups.UICommandInvokedHandler(this.CommandInvokedHandler)));
-
-            // Set the command that will be invoked by default
-            msgbox.DefaultCommandIndex = 0;
-            // Set the command to be invoked when escape is pressed
-            msgbox.CancelCommandIndex = 1;
-
-            await msgbox.ShowAsync();
-            //end.
-            */
-        }
-
-        private void CommandInvokedHandler(Windows.UI.Popups.IUICommand command)
-        {
-            var Actions = command.Label;
-            switch (Actions)
-            {
-                //Okay Button.
-                case "Ok":
-                    System.Diagnostics.Debug.WriteLine("OK");
-                    break;
-                case "Quit":
-                    Application.Current.Exit();
-                    break;
-                //end.
+                Models.Student s = new Models.Student();
+                s.BookCount = 14;
+                s.Name = "Dan";
+                this.Frame.Navigate(typeof(Pages.SecondPage), s);
             }
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            //Using Nullable Types
-            // https://msdn.microsoft.com/en-us/library/2cf62fcy(v=vs.120).aspx
-            bool? isChecked = ((RadioButton)sender).IsChecked;
-            System.Diagnostics.Debug.WriteLine("RadioButton " + isChecked);
-            ((RadioButton)sender).IsChecked = false;
-        }
 
     }
 }

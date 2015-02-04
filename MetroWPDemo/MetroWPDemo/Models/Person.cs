@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MetroWPDemo.Model
+namespace MetroWPDemo.Models
 {
 
     interface IPersionAction
@@ -79,6 +79,14 @@ namespace MetroWPDemo.Model
             System.Diagnostics.Debug.WriteLine("Student run.");
             base.Run();
         }
+
+        public override string ToString()
+        {
+            System.Diagnostics.Debug.WriteLine("Student name: " + Name);
+            System.Diagnostics.Debug.WriteLine("Student book count: " + BookCount);
+            return base.ToString();
+        }
+
     }
 
 }
