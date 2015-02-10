@@ -22,9 +22,18 @@ namespace MetroWPDemo.Pages
     /// </summary>
     public sealed partial class HubPage : Page
     {
+        private ViewModel.HubPageViewModel _hubPageViewModel = null;
+
         public HubPage()
         {
             this.InitializeComponent();
+            Loaded += HubPage_Loaded;
+        }
+
+        void HubPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            _hubPageViewModel = new ViewModel.HubPageViewModel();
+            this.DataContext = _hubPageViewModel;
         }
 
         /// <summary>
@@ -34,6 +43,20 @@ namespace MetroWPDemo.Pages
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine("---Page OnNavigatedTo ---");
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("---Page OnNavigatedFrom ---");
+            base.OnNavigatedFrom(e);
+        }
+
+
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("---Page OnNavigatingFrom ---");
+            base.OnNavigatingFrom(e);
         }
     }
 }

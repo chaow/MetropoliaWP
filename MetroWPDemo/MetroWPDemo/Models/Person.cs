@@ -6,64 +6,62 @@ using System.Threading.Tasks;
 
 namespace MetroWPDemo.Models
 {
-
-    interface IPersionAction
-    {
-        void Run();
-        void Read_Book();
-    }
-
     /// <summary>
     /// 
     /// </summary>
-    public class Person : IPersionAction
+    public class Person : MobelBase
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public virtual void Read_Book()
-        {
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public virtual void Run()
-        {
-            System.Diagnostics.Debug.WriteLine("Person run.");
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private string _name = string.Empty;
-        /// <summary>
-        /// 
-        /// </summary>
+        private string _name = "";
         public string Name
-        {
-            set;
-            get;
-        }
-
-        #region book count
-
-        private int _bookCount = 0;
-        public int BookCount
         {
             set
             {
-                if (value != _bookCount)
+                if (value != _name)
                 {
-                    _bookCount = value;
+                    _name = value;
+                    NotifyPropertyChanged("personName");
                 }
             }
             get
             {
-                return _bookCount;
+                return _name;
             }
         }
-        #endregion
+
+        private string _nickName = "";
+        public string Nickname
+        {
+            set
+            {
+                if (value != _nickName)
+                {
+                    _nickName = value;
+                    NotifyPropertyChanged("nickName");
+                }
+            }
+            get
+            {
+                return _nickName;
+            }
+        }
+
+        private int _age = 0;
+        public int Age
+        {
+            set
+            {
+                if (value != _age)
+                {
+                    _age = value;
+                    NotifyPropertyChanged("personAge");
+                }
+            }
+            get
+            {
+                return _age;
+            }
+        }
+
     }
 
     /// <summary>
@@ -71,19 +69,10 @@ namespace MetroWPDemo.Models
     /// </summary>
     public class Student : Person
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        public override void Run()
-        {
-            System.Diagnostics.Debug.WriteLine("Student run.");
-            base.Run();
-        }
 
         public override string ToString()
         {
             System.Diagnostics.Debug.WriteLine("Student name: " + Name);
-            System.Diagnostics.Debug.WriteLine("Student book count: " + BookCount);
             return base.ToString();
         }
 

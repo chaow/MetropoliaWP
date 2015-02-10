@@ -8,7 +8,62 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Page.Resources>
+        
+        <DataTemplate x:Key="PersonListItemTemplate">
+            <!-- build list cell layout -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
+                <StackPanel Grid.Column="0" Margin="10">
+                    <TextBlock Text="{Binding Name}" Foreground="White" FontSize="20"/>
+                    <TextBlock Text="{Binding Nickname}" Foreground="White" FontSize="20" />
+                    <TextBlock Text="{Binding Age}" Foreground="White" FontSize="20"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        <ItemsPanelTemplate x:Key="GridViewItemsPanel">
+            <ItemsWrapGrid Orientation="Vertical" />
+        </ItemsPanelTemplate>
+
+    </Page.Resources>
+
+
+    <Grid x:Name="LayoutRoot">
+        <Hub x:Name="Hub" Header="Hub demo" Background="Brown">
+            <!-- localization -->
+            <HubSection Header="Person1">
+                <DataTemplate>
+                    <ListView 
+                        ItemsSource="{Binding PersonHub1ViewModel}" 
+                        ItemTemplate="{StaticResource PersonListItemTemplate}"
+                        />
+                </DataTemplate>
+            </HubSection>
+            
+            <HubSection Header="Person2" >
+                <DataTemplate>
+                    <GridView 
+                        ItemsPanel="{StaticResource GridViewItemsPanel}"
+                        ItemsSource="{Binding PersonHub2ViewModel}" 
+                        ItemTemplate="{StaticResource PersonListItemTemplate}"
+                        ScrollViewer.HorizontalScrollMode="Auto"
+                        ScrollViewer.VerticalScrollMode="Disabled"
+                        ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                        />
+                </DataTemplate>
+            </HubSection>
+            
+            <HubSection  Header="Others" >
+                <DataTemplate>
+                
+                </DataTemplate>
+            </HubSection>
+        </Hub>
     </Grid>
 </Page>

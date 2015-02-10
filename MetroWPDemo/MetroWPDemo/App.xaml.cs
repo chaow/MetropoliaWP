@@ -121,6 +121,7 @@ namespace MetroWPDemo
             // Ensure the current window is active
             Window.Current.Activate();
 
+            // hook a golable back button press event handler
             Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
         }
 
@@ -135,6 +136,7 @@ namespace MetroWPDemo
             if (frame.CanGoBack)
             {
                 frame.GoBack();
+                // need to mark that we handle the event here
                 e.Handled = true;
             }
         }

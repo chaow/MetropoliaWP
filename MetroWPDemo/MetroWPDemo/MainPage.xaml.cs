@@ -63,7 +63,6 @@ namespace MetroWPDemo
             else if (Button2.Name.Equals(b.Name))
             {
                 Models.Student s = new Models.Student();
-                s.BookCount = 14;
                 s.Name = "Dan";
                 this.Frame.Navigate(typeof(Pages.SecondPage), s);
             }

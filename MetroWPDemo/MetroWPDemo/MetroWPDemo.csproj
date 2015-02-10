@@ -88,6 +88,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\MobelBase.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Pages\HubPage.xaml.cs">
       <DependentUpon>HubPage.xaml</DependentUpon>
@@ -105,6 +106,7 @@
     <Compile Include="UserControls\UserControlDemo.xaml.cs">
       <DependentUpon>UserControlDemo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\HubPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

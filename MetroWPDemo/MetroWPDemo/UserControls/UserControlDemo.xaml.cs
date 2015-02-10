@@ -32,6 +32,7 @@ namespace MetroWPDemo.UserControls
 
         void ButtonClickMe_Click(object sender, RoutedEventArgs e)
         {
+            // dismiss the user control
             Popup thisPopup = this.Parent as Popup;
             thisPopup.IsOpen = false;
         }

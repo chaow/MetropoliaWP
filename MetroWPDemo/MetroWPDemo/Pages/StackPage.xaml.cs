@@ -61,6 +61,9 @@ namespace MetroWPDemo.Pages
                 _popup = null;
             }
             _popup = new Popup() { IsOpen = true, Child = new UserControls.UserControlDemo() };
+            //_popup = new Popup();
+            //_popup.IsOpen = true;
+            //_popup.Child = new UserControls.UserControlDemo();
         }
 
         void ButtonCleanStack_Click(object sender, RoutedEventArgs e)
