@@ -67,6 +67,14 @@ namespace MetroWPDemo
                 s.Name = "Dan";
                 this.Frame.Navigate(typeof(Pages.SecondPage), s);
             }
+            else if (Button3.Name.Equals(b.Name))
+            {
+                this.Frame.Navigate(typeof(Pages.HubPage));
+            }
+            else if (ButtonStack.Name.Equals(b.Name))
+            {
+                this.Frame.Navigate(typeof(Pages.StackPage));
+            }
         }
 
 

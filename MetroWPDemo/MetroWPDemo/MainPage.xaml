@@ -19,11 +19,18 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="0" Grid.Column="1">
-            <Button Name="Button1" Content="First Page" Grid.Column="1" 
+            <Button Name="Button1" x:Uid="Button1" Grid.Column="1" 
                     HorizontalAlignment="Center" Margin="0" Grid.Row="1" 
                     VerticalAlignment="Top" Click="Button_Click"/>
 
-            <Button Name="Button2" Content="Second Page" Grid.Column="2" 
+            <Button Name="Button2" x:Uid="Button2" Grid.Column="2" 
+                    HorizontalAlignment="Center" Margin="0,50,0,0"
+                    Grid.Row="2" Click="Button_Click"/>
+            
+            <Button Name="Button3" x:Uid="Button3" Grid.Column="2" 
+                    HorizontalAlignment="Center" Margin="0,50,0,0"
+                    Grid.Row="2" Click="Button_Click"/>
+            <Button Name="ButtonStack" x:Uid="ButtonStack" Grid.Column="2" 
                     HorizontalAlignment="Center" Margin="0,50,0,0"
                     Grid.Row="2" Click="Button_Click"/>
         </StackPanel>

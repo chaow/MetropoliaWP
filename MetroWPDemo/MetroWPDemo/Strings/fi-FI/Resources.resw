@@ -120,6 +120,18 @@
   <data name="ApplicationName" xml:space="preserve">
     <value>DemoWPMetro</value>
   </data>
+  <data name="Button1.Content" xml:space="preserve">
+    <value>FI-First Page</value>
+  </data>
+  <data name="Button2.Content" xml:space="preserve">
+    <value>FI-Second Page</value>
+  </data>
+  <data name="Button3.Content" xml:space="preserve">
+    <value>FI-Hub Page</value>
+  </data>
+  <data name="ButtonStack.Content" xml:space="preserve">
+    <value>stack demo</value>
+  </data>
   <data name="DebugContent" xml:space="preserve">
     <value>FI-DebugCode</value>
   </data>
