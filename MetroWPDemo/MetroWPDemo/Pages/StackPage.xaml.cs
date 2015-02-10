@@ -22,6 +22,8 @@ namespace MetroWPDemo.Pages
     /// </summary>
     public sealed partial class StackPage : Page
     {
+        private Popup _popup = null;
+
         private int _stackLevel = 0;
 
         public StackPage()
@@ -34,6 +36,31 @@ namespace MetroWPDemo.Pages
         {
             ButtonStack.Click += ButtonStack_Click;
             ButtonCleanStack.Click += ButtonCleanStack_Click;
+            ButtonUserControl.Click += ButtonUserControl_Click;
+
+
+            //Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+        }
+
+        void HardwareButtons_BackPressed(object sender, Windows.Phone.UI.Input.BackPressedEventArgs e)
+        {
+            if (_popup != null)
+            {
+                _popup.IsOpen = false;
+                _popup = null;
+
+                e.Handled = true;
+            }
+        }
+
+        void ButtonUserControl_Click(object sender, RoutedEventArgs e)
+        {
+            if (_popup != null)
+            {
+                _popup.IsOpen = false;
+                _popup = null;
+            }
+            _popup = new Popup() { IsOpen = true, Child = new UserControls.UserControlDemo() };
         }
 
         void ButtonCleanStack_Click(object sender, RoutedEventArgs e)

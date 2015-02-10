@@ -8,12 +8,20 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>        
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <StackPanel>
             <Button Content="stack demo" Name="ButtonStack"/>
             <TextBlock Name="StackDemo" 
                    VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"/>
             <Button Content="clean stack" Name="ButtonCleanStack"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Margin="100">
+            <Button Content="UserControlDemo" Name="ButtonUserControl"/>
         </StackPanel>
         
     </Grid>
