@@ -3,9 +3,10 @@ using System.ComponentModel;
 
 namespace MetroWPDemo.Models
 {
-    public abstract class MobelBase : INotifyPropertyChanged
+    public abstract class ModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected void NotifyPropertyChanged(String propertyName)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
