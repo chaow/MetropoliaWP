@@ -18,21 +18,39 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.Column="1">
-            <Button Name="Button1" x:Uid="Button1" Grid.Column="1" 
-                    HorizontalAlignment="Center" Margin="0" Grid.Row="1" 
-                    VerticalAlignment="Top" Click="Button_Click"/>
+        <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+                <Button Name="Button1" x:Uid="Button1"  
+                    HorizontalAlignment="Center" Margin="20" 
+                     Click="Button_Click"/>
 
-            <Button Name="Button2" x:Uid="Button2" Grid.Column="2" 
-                    HorizontalAlignment="Center" Margin="0,50,0,0"
-                    Grid.Row="2" Click="Button_Click"/>
+                <Button Name="Button2" x:Uid="Button2" 
+                    HorizontalAlignment="Center" Margin="20"
+                    Click="Button_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                        Grid.Column="1" Grid.Row="2">
+                <Button Name="Button3" x:Uid="Button3"  
+                    HorizontalAlignment="Center" Margin="20"
+                    Click="Button_Click"/>
+
+                <Button Name="ButtonStack" x:Uid="ButtonStack" 
+                    HorizontalAlignment="Center" Margin="20"
+                    Click="Button_Click"/>
+            </StackPanel>
             
-            <Button Name="Button3" x:Uid="Button3" Grid.Column="2" 
-                    HorizontalAlignment="Center" Margin="0,50,0,0"
-                    Grid.Row="2" Click="Button_Click"/>
-            <Button Name="ButtonStack" x:Uid="ButtonStack" Grid.Column="2" 
-                    HorizontalAlignment="Center" Margin="0,50,0,0"
-                    Grid.Row="2" Click="Button_Click"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                        Grid.Column="1" Grid.Row="3">
+                <Button Name="ButtonNetwork" x:Uid="ButtonNetwork" 
+                    HorizontalAlignment="Center" Margin="20"
+                    Click="Button_Click"/>
+
+                <Button Name="ButtonAppLifeCycle" x:Uid="ButtonAppLifeCycle" 
+                    HorizontalAlignment="Center" Margin="20"
+                    Click="Button_Click"/>
+            </StackPanel>
+            
         </StackPanel>
 
     </Grid>

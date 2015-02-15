@@ -90,8 +90,12 @@
     </Compile>
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Network\DemoHttpClient.cs" />
     <Compile Include="Pages\HubPage.xaml.cs">
       <DependentUpon>HubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NetworkPage.xaml.cs">
+      <DependentUpon>NetworkPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\StackPage.xaml.cs">
       <DependentUpon>StackPage.xaml</DependentUpon>
@@ -139,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\HubPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\NetworkPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

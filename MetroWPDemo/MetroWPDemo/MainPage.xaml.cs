@@ -74,6 +74,14 @@ namespace MetroWPDemo
             {
                 this.Frame.Navigate(typeof(Pages.StackPage));
             }
+            else if (ButtonNetwork.Name.Equals(b.Name))
+            {
+                this.Frame.Navigate(typeof(Pages.NetworkPage));
+            }
+            else if (ButtonAppLifeCycle.Name.Equals(b.Name))
+            {
+
+            }
         }
 
 

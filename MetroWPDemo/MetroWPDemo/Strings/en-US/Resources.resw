@@ -129,8 +129,20 @@
   <data name="Button3.Content" xml:space="preserve">
     <value>Hub Page</value>
   </data>
+  <data name="ButtonAppLifeCycle.Content" xml:space="preserve">
+    <value>App life cycle</value>
+  </data>
+  <data name="ButtonHttpGet.Content" xml:space="preserve">
+    <value>Http Get</value>
+  </data>
+  <data name="ButtonHttpPost.Content" xml:space="preserve">
+    <value>Http Post</value>
+  </data>
+  <data name="ButtonNetwork.Content" xml:space="preserve">
+    <value>Network</value>
+  </data>
   <data name="ButtonStack.Content" xml:space="preserve">
-    <value>stack demo</value>
+    <value>Stack demo</value>
   </data>
   <data name="DebugContent" xml:space="preserve">
     <value>DebugCode</value>
