@@ -9,7 +9,7 @@ namespace MetroWPDemo.Models
     /// <summary>
     /// 
     /// </summary>
-    public class Person : MobelBase
+    public class Person : ModelBase
     {
         private string _name = "";
         public string Name

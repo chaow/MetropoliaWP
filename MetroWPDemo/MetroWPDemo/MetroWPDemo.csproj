@@ -88,7 +88,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\MobelBase.cs" />
+    <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Pages\HubPage.xaml.cs">
       <DependentUpon>HubPage.xaml</DependentUpon>
