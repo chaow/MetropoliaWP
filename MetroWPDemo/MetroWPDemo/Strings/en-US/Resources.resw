@@ -135,6 +135,12 @@
   <data name="DebugContent" xml:space="preserve">
     <value>DebugCode</value>
   </data>
+  <data name="MenuFlyoutItemDelete.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="MenuFlyoutItemHello.Text" xml:space="preserve">
+    <value>Hello</value>
+  </data>
   <data name="TextBlock1.Text" xml:space="preserve">
     <value>something</value>
   </data>

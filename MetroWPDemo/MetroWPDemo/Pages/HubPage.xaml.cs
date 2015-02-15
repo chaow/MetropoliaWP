@@ -58,5 +58,46 @@ namespace MetroWPDemo.Pages
             System.Diagnostics.Debug.WriteLine("---Page OnNavigatingFrom ---");
             base.OnNavigatingFrom(e);
         }
+
+        private void StackPanel_Holding(object sender, HoldingRoutedEventArgs e)
+        {
+            // pop up the menu
+            FrameworkElement senderElement = sender as FrameworkElement;
+            FlyoutBase flyoutBase = FlyoutBase.GetAttachedFlyout(senderElement);
+            flyoutBase.ShowAt(senderElement);
+        }
+
+        private void MenuFlyoutItemDelete_Click(object sender, RoutedEventArgs e)
+        {
+            MenuFlyoutItem item = sender as MenuFlyoutItem;
+
+            if (item != null)
+            {
+                // fetch the list item content
+                Models.Person person = item.DataContext as Models.Person;
+                if (person != null)
+                {
+                    _hubPageViewModel.RemovePersonFromPersonHub1List(person);
+                }
+            }
+        }
+
+        private async void MenuFlyoutItemHello_Click(object sender, RoutedEventArgs e)
+        {
+            MenuFlyoutItem item = sender as MenuFlyoutItem;
+
+            if (item != null)
+            {
+                // fetch the list item content
+                Models.Person person = item.DataContext as Models.Person;
+                if(person != null)
+                {
+                    Windows.UI.Popups.MessageDialog msgbox
+                        = new Windows.UI.Popups.MessageDialog("Hello! " + person.Name);
+                    await msgbox.ShowAsync();
+                }
+            }
+
+        }
     }
 }

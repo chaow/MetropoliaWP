@@ -90,5 +90,16 @@ namespace MetroWPDemo.ViewModel
             }
         }
 
+        /// <summary>
+        /// Remove a persion from hub 1 list
+        /// </summary>
+        /// <param name="p"></param>
+        public void RemovePersonFromPersonHub1List(Person p)
+        {
+            if((_personHub1ViewModel != null) && (p != null))
+            {
+                _personHub1ViewModel.Remove(p);
+            }
+        }
     }
 }
