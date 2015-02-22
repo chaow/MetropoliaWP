@@ -135,6 +135,9 @@
   <data name="ButtonHttpGet.Content" xml:space="preserve">
     <value>FI-Http Get</value>
   </data>
+  <data name="ButtonHttpGetGoogle.Content" xml:space="preserve">
+    <value>FI-Http Get (Google)</value>
+  </data>
   <data name="ButtonHttpPost.Content" xml:space="preserve">
     <value>FI-Http Post</value>
   </data>

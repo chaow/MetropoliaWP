@@ -24,10 +24,13 @@ namespace MetroWPDemo.Pages
     {
         private ViewModel.HubPageViewModel _hubPageViewModel = null;
 
+        private Common.NavigationHelper _navigationHelper = null;
+
         public HubPage()
         {
             this.InitializeComponent();
             Loaded += HubPage_Loaded;
+            _navigationHelper = new Common.NavigationHelper(this);
         }
 
         void HubPage_Loaded(object sender, RoutedEventArgs e)

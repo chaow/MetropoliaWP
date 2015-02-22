@@ -22,6 +22,8 @@ namespace MetroWPDemo.Pages
     /// </summary>
     public sealed partial class FirstPage : Page
     {
+        private Common.NavigationHelper _navigationHelper = null;
+
         public FirstPage()
         {
             this.InitializeComponent();
@@ -30,7 +32,7 @@ namespace MetroWPDemo.Pages
 
             this.Loaded += MainPage_Loaded;
 
-            //Loaded -= MainPage_Loaded;
+            _navigationHelper = new Common.NavigationHelper(this);
         }
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)

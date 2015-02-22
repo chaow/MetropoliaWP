@@ -25,11 +25,13 @@ namespace MetroWPDemo.Pages
         private Popup _popup = null;
 
         private int _stackLevel = 0;
+        private Common.NavigationHelper _navigationHelper = null;
 
         public StackPage()
         {
             this.InitializeComponent();
             Loaded += StackPage_Loaded;
+            _navigationHelper = new Common.NavigationHelper(this);
         }
 
         void StackPage_Loaded(object sender, RoutedEventArgs e)

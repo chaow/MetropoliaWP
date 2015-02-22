@@ -22,9 +22,12 @@ namespace MetroWPDemo.Pages
     /// </summary>
     public sealed partial class SecondPage : Page
     {
+        private Common.NavigationHelper _navigationHelper = null;
+
         public SecondPage()
         {
             this.InitializeComponent();
+            _navigationHelper = new Common.NavigationHelper(this);
         }
 
         /// <summary>

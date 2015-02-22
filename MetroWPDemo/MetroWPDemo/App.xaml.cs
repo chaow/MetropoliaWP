@@ -57,14 +57,13 @@ namespace MetroWPDemo
             this.Suspending += this.OnSuspending;
         }
 
-
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used when the application is launched to open a specific file, to display
         /// search results, and so forth.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
@@ -82,12 +81,16 @@ namespace MetroWPDemo
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
 
+                Common.SuspensionManager.RegisterFrame(rootFrame, "appFrame");
+
                 // TODO: change this value to a cache size that is appropriate for your application
                 rootFrame.CacheSize = 1;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     // TODO: Load state from previously suspended application
+                    await Common.SuspensionManager.RestoreAsync();
+                    System.Diagnostics.Debug.WriteLine("restore data");
                 }
 
                 // Place the frame in the current Window
@@ -120,25 +123,6 @@ namespace MetroWPDemo
 
             // Ensure the current window is active
             Window.Current.Activate();
-
-            // hook a golable back button press event handler
-            Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
-        }
-
-        void HardwareButtons_BackPressed(object sender, Windows.Phone.UI.Input.BackPressedEventArgs e)
-        {
-            Frame frame = Window.Current.Content as Frame;
-            if (frame == null)
-            {
-                return;
-            }
-
-            if (frame.CanGoBack)
-            {
-                frame.GoBack();
-                // need to mark that we handle the event here
-                e.Handled = true;
-            }
         }
 
         /// <summary>
@@ -160,9 +144,13 @@ namespace MetroWPDemo
         /// </summary>
         /// <param name="sender">The source of the suspend request.</param>
         /// <param name="e">Details about the suspend request.</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
+
+            await Common.SuspensionManager.SaveAsync();
+
+            System.Diagnostics.Debug.WriteLine("App on suspending");
 
             // TODO: Save application state and stop any background activity
             deferral.Complete();

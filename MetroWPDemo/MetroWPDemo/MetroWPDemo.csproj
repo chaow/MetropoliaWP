@@ -85,14 +85,22 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\NavigationHelper.cs" />
+    <Compile Include="Common\ObservableDictionary.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Computer.cs" />
+    <Compile Include="Models\ComputerList.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="Network\DemoHttpClient.cs" />
     <Compile Include="Pages\HubPage.xaml.cs">
       <DependentUpon>HubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LifeCyclePage.xaml.cs">
+      <DependentUpon>LifeCyclePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\NetworkPage.xaml.cs">
       <DependentUpon>NetworkPage.xaml</DependentUpon>
@@ -110,6 +118,7 @@
     <Compile Include="UserControls\UserControlDemo.xaml.cs">
       <DependentUpon>UserControlDemo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\JsonHelper.cs" />
     <Compile Include="ViewModel\HubPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\HubPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LifeCyclePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

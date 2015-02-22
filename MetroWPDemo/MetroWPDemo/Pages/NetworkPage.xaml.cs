@@ -36,17 +36,143 @@ namespace MetroWPDemo.Pages
         {
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             var b = sender as Button;
-            if (ButtonHttpGet.Name.Equals(b.Name))
+            if (ButtonHttpGetGoogle.Name.Equals(b.Name))
             {
-
+                // fire http get (Google)
+                int x = await FireHttpGetGoogle();
+            }
+            else if (ButtonHttpGet.Name.Equals(b.Name))
+            {
+                // fire http get
+                int y = await FireHttpGet();
             }
             else if (ButtonHttpPost.Name.Equals(b.Name))
             {
-
+                // fire http post
+                int z = await FireHttpPost();
             }
         }
+
+        private async System.Threading.Tasks.Task<int> FireHttpGetGoogle()
+        {
+            using (var client = new Windows.Web.Http.HttpClient())
+            {
+                try
+                {
+                    using (var response = await client.GetAsync(new Uri("http://www.google.com")))
+                    {
+                        System.Diagnostics.Debug.WriteLine("response " + response.StatusCode + " ---- " + response.ToString());
+
+                        // status code 200
+                        //if (response.IsSuccessStatusCode)
+                        //{
+                        // something
+                        //}
+
+                        // status code 200
+                        if (response.StatusCode == Windows.Web.Http.HttpStatusCode.Ok)
+                        {
+                            var respMsg = await response.Content.ReadAsStringAsync();
+                            System.Diagnostics.Debug.WriteLine("response content: " + respMsg);
+                            // update UI
+                            NetworkContent.Text = respMsg;
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    System.Diagnostics.Debug.WriteLine("http get response error: " + e.Message);
+                }
+            }
+            return 1;
+        }
+
+
+        private async System.Threading.Tasks.Task<int> FireHttpGet()
+        {
+            using(var client = new Windows.Web.Http.HttpClient())
+            {
+                try
+                {
+                    client.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
+                    // adding extra header
+                    client.DefaultRequestHeaders.Add("X-Value", "WP-DEMO");
+                    using (var response = await client.GetAsync(new Uri("http://users.metropolia.fi/~chaow/wpdemo.php")))
+                    {
+                        System.Diagnostics.Debug.WriteLine("response " + response.StatusCode + " ---- " + response.ToString());
+
+                        // status code 200
+                        if (response.StatusCode == Windows.Web.Http.HttpStatusCode.Ok)
+                        {
+                            var respMsg = await response.Content.ReadAsStringAsync();
+                            System.Diagnostics.Debug.WriteLine("response content: " + respMsg);
+                            //FIXME
+                            //Models.ComputerList computerList =
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    System.Diagnostics.Debug.WriteLine("http get response error: " + e.Message);
+                }
+            }
+            return 1;
+        }
+
+        private async System.Threading.Tasks.Task<int> FireHttpPost()
+        {
+            Windows.Web.Http.HttpResponseMessage response = null;
+            try
+            {
+                //FIXME
+                //string jsonString = 
+
+                // Create the IHttpContent
+                Windows.Web.Http.IHttpContent jsonContent 
+                    = new Windows.Web.Http.HttpStringContent("{\"name\":\"test\"}", 
+                                Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json");
+
+                var client = new Windows.Web.Http.HttpClient();
+                client.DefaultRequestHeaders.Accept.TryParseAdd("application/json");
+                //example server: http://www.posttestserver.com/
+                response = await client.PostAsync(new Uri("https://posttestserver.com/post.php"), jsonContent);
+
+                System.Diagnostics.Debug.WriteLine("response " + response.StatusCode + " ---- " + response.ToString());
+                if (response.StatusCode == Windows.Web.Http.HttpStatusCode.Ok)
+                {
+                    // status code 200
+                    var respMsg = await response.Content.ReadAsStringAsync();
+                    System.Diagnostics.Debug.WriteLine("response " + respMsg);
+                }
+                else
+                {
+                    // the rest
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("error: " + ex.Message);
+            }
+            finally
+            {
+                try
+                {
+                    if (response != null)
+                    {
+                        response.Dispose();
+                    }
+                }
+                catch (Exception e)
+                {
+                    System.Diagnostics.Debug.WriteLine("response dispose: " + e.Message);
+                }
+            }
+
+            return 1;
+        }
+
     }
 }

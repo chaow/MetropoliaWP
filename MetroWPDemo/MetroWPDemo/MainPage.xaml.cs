@@ -22,6 +22,8 @@ namespace MetroWPDemo
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private Common.NavigationHelper _navigationHelper = null;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -29,6 +31,8 @@ namespace MetroWPDemo
             this.NavigationCacheMode = NavigationCacheMode.Required;
 
             this.Loaded += MainPage_Loaded;
+
+            _navigationHelper = new Common.NavigationHelper(this);
         }
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
@@ -80,7 +84,7 @@ namespace MetroWPDemo
             }
             else if (ButtonAppLifeCycle.Name.Equals(b.Name))
             {
-
+                this.Frame.Navigate(typeof(Pages.LifeCyclePage));
             }
         }
 
