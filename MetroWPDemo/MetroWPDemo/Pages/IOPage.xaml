@@ -33,6 +33,11 @@
             <TimePicker Name="MyTimePicker" Margin="10" Header="Time: "/>
 
             <Button Name="ButtonDateTime"  Content="Get date and time" Margin="10"  Click="ButtonOthers_Click"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="ButtonTile"  Content="Update a Tile" Margin="10"  Click="ButtonOthers_Click"/>
+                <Button Name="ButtonBadge"  Content="Update a badge" Margin="10" Click="ButtonOthers_Click" />
+            </StackPanel>
         </StackPanel>
 
         

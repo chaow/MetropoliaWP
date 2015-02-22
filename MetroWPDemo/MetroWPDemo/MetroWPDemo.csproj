@@ -122,6 +122,7 @@
       <DependentUpon>UserControlDemo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\JsonHelper.cs" />
+    <Compile Include="Utils\TileSetter.cs" />
     <Compile Include="ViewModel\HubPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +138,8 @@
     <Content Include="Assets\StoreLogo.scale-240.png" />
     <Content Include="Assets\WideLogo.scale-240.png" />
     <Content Include="Images\scale-100\resolution.png" />
+    <Content Include="Images\scale-100\TileImageSquare.png" />
+    <Content Include="Images\scale-100\TileImageWide.png" />
     <Content Include="Images\scale-140\resolution.png" />
     <Content Include="Images\scale-180\resolution.png" />
     <Content Include="Images\scale-240\resolution.png" />

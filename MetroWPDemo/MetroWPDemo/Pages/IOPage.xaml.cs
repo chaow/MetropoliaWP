@@ -132,8 +132,22 @@ namespace MetroWPDemo.Pages
                 System.Diagnostics.Debug.WriteLine("Date: " + MyDatePicker.Date);
                 System.Diagnostics.Debug.WriteLine("Time: " + MyTimePicker.Time);
             }
-        }
+            else if (ButtonTile.Name.Equals(b.Name))
+            {
+                MetroWPDemo.Utils.TileSetter.CreateTiles("/Images/TileImageSquare.png", 
+                                                    "/Images/TileImageWide.png", 
+                                                        DateTime.Now.ToString());
+            }
+            else if (ButtonBadge.Name.Equals(b.Name))
+            {
+                var badgeXML = Windows.UI.Notifications.BadgeUpdateManager.GetTemplateContent(Windows.UI.Notifications.BadgeTemplateType.BadgeNumber);
+                var badge = badgeXML.SelectSingleNode("/badge") as Windows.Data.Xml.Dom.XmlElement;
+                badge.SetAttribute("value", (DateTime.Now.Millisecond % 100).ToString());
+                var badgeNotification = new Windows.UI.Notifications.BadgeNotification(badgeXML);
+                Windows.UI.Notifications.BadgeUpdateManager.CreateBadgeUpdaterForApplication().Update(badgeNotification);
+            }
 
+        }
 
     }
 }
