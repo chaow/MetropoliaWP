@@ -141,11 +141,14 @@
   <data name="ButtonHttpPost.Content" xml:space="preserve">
     <value>FI-Http Post</value>
   </data>
+  <data name="ButtonIO.Content" xml:space="preserve">
+    <value>FI-IO</value>
+  </data>
   <data name="ButtonNetwork.Content" xml:space="preserve">
     <value>FI-Network</value>
   </data>
   <data name="ButtonStack.Content" xml:space="preserve">
-    <value>stack demo</value>
+    <value>FI-stack demo</value>
   </data>
   <data name="DebugContent" xml:space="preserve">
     <value>FI-DebugCode</value>

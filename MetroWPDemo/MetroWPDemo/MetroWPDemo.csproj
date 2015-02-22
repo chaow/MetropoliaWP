@@ -99,6 +99,9 @@
     <Compile Include="Pages\HubPage.xaml.cs">
       <DependentUpon>HubPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\IOPage.xaml.cs">
+      <DependentUpon>IOPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\LifeCyclePage.xaml.cs">
       <DependentUpon>LifeCyclePage.xaml</DependentUpon>
     </Compile>
@@ -152,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\HubPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\IOPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

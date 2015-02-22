@@ -141,6 +141,9 @@
   <data name="ButtonHttpPost.Content" xml:space="preserve">
     <value>Http Post</value>
   </data>
+  <data name="ButtonIO.Content" xml:space="preserve">
+    <value>IO</value>
+  </data>
   <data name="ButtonNetwork.Content" xml:space="preserve">
     <value>Network</value>
   </data>
