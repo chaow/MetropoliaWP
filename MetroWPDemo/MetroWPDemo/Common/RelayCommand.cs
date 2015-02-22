@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace App1.Common
+namespace MetroWPDemo.Pages
 {
     /// <summary>
     /// A command whose sole purpose is to relay its functionality 

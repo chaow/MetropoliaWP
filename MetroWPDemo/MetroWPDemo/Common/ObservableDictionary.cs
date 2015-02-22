@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Windows.Foundation.Collections;
 
-namespace App1.Common
+namespace MetroWPDemo.Pages
 {
     /// <summary>
     /// Implementation of IObservableMap that supports reentrancy for use as a default view
