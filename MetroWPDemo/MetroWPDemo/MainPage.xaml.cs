@@ -86,7 +86,7 @@ namespace MetroWPDemo
             {
                 this.Frame.Navigate(typeof(Pages.LifeCyclePage));
             }
-            else if (ButtonIO.Name.Equals(b.Name))
+            else if (ButtonIOTiles.Name.Equals(b.Name))
             {
                 this.Frame.Navigate(typeof(Pages.IOPage));
             }

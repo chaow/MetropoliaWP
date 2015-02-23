@@ -23,11 +23,58 @@ namespace MetroWPDemo.Pages
     public sealed partial class IOPage : Page
     {
         private Common.NavigationHelper _navigationHelper = null;
+        private AppBarButton _pinButton = null;
 
         public IOPage()
         {
             this.InitializeComponent();
             _navigationHelper = new Common.NavigationHelper(this);
+        }
+
+        private void CreateAppBarButton()
+        {
+            if(_pinButton == null)
+            {
+                _pinButton = new AppBarButton();
+                _pinButton.Label = App.AppResourceLoader.GetString("AppBarButtonPin");
+                _pinButton.Click += PinButton_Click;
+                _pinButton.Icon = new SymbolIcon(Symbol.Pin);
+            }
+
+            MyBottomAppBar.PrimaryCommands.Clear();
+            MyBottomAppBar.PrimaryCommands.Add(_pinButton);
+        }
+
+        private async void PinButton_Click(object sender, RoutedEventArgs e)
+        {
+            bool createSecondaryTile = true;
+
+            // Find all secondary tiles
+            var secondaryTiles = await Windows.UI.StartScreen.SecondaryTile.FindAllAsync();
+            foreach (var secondaryTile in secondaryTiles)
+            {
+                // We'll be good citizens and only remove the secondary tile belonging
+                // to this scenario. To remove all secondary tiles, remove this check.
+                if (secondaryTile.TileId == "ButtonSecondaryTile")
+                {
+                    // Delete the secondary tile.
+                    // Note: On Windows Phone, the call to RequestDeleteAsync deletes the tile without prompting the user
+                    // await secondaryTile.RequestDeleteAsync();
+
+                    createSecondaryTile = false;
+                }
+            }
+
+            if (createSecondaryTile)
+            {
+                var tile = new Windows.UI.StartScreen.SecondaryTile("ButtonSecondaryTile",
+                                                                "ButtonSecondaryTile update",
+                                                                "PinTime:" + DateTime.Now.ToString(),
+                                                                new Uri("ms-appx:///Assets/wideLogo.png"),
+                                                                Windows.UI.StartScreen.TileSize.Default);
+                tile.VisualElements.ShowNameOnSquare150x150Logo = true;
+                await tile.RequestCreateAsync();
+            }
         }
 
         /// <summary>
@@ -37,6 +84,13 @@ namespace MetroWPDemo.Pages
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            CreateAppBarButton();
+
+            if (e.Parameter != null)
+            {
+                string val = e.Parameter.ToString();
+                MyInputTextBox.Text = val;
+            }
         }
 
         private async void ButtonFile_Click(object sender, RoutedEventArgs e)
@@ -134,8 +188,8 @@ namespace MetroWPDemo.Pages
             }
             else if (ButtonTile.Name.Equals(b.Name))
             {
-                MetroWPDemo.Utils.TileSetter.CreateTiles("/Images/TileImageSquare.png", 
-                                                    "/Images/TileImageWide.png", 
+                MetroWPDemo.Utils.TileSetter.CreateTiles("ms-appx:///Images/TileImageSquare.png",
+                                                        "ms-appx:///Images/TileImageWide.png", 
                                                         DateTime.Now.ToString());
             }
             else if (ButtonBadge.Name.Equals(b.Name))
@@ -146,7 +200,13 @@ namespace MetroWPDemo.Pages
                 var badgeNotification = new Windows.UI.Notifications.BadgeNotification(badgeXML);
                 Windows.UI.Notifications.BadgeUpdateManager.CreateBadgeUpdaterForApplication().Update(badgeNotification);
             }
+        }
 
+        private async void About_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.UI.Popups.MessageDialog msgbox
+                    = new Windows.UI.Popups.MessageDialog("About");
+            await msgbox.ShowAsync();
         }
 
     }

@@ -22,9 +22,12 @@ namespace MetroWPDemo.Pages
     /// </summary>
     public sealed partial class NetworkPage : Page
     {
+        private Common.NavigationHelper _navigationHelper = null;
+
         public NetworkPage()
         {
             this.InitializeComponent();
+            _navigationHelper = new Common.NavigationHelper(this);
         }
 
         /// <summary>
@@ -109,8 +112,9 @@ namespace MetroWPDemo.Pages
                         {
                             var respMsg = await response.Content.ReadAsStringAsync();
                             System.Diagnostics.Debug.WriteLine("response content: " + respMsg);
-                            //FIXME
-                            //Models.ComputerList computerList =
+                            Models.ComputerList computerList = Utils.JsonHelper.Deserialize<Models.ComputerList>(respMsg);
+                            // update UI
+                            NetworkContent.Text = computerList.ToString();
                         }
                     }
                 }
@@ -127,12 +131,15 @@ namespace MetroWPDemo.Pages
             Windows.Web.Http.HttpResponseMessage response = null;
             try
             {
-                //FIXME
-                //string jsonString = 
+                Models.Computer c = new Models.Computer();
+                c.Brand = "Metro";
+                c.Price = 100;
+
+                string jsonString = Utils.JsonHelper.Serialize(c);
 
                 // Create the IHttpContent
-                Windows.Web.Http.IHttpContent jsonContent 
-                    = new Windows.Web.Http.HttpStringContent("{\"name\":\"test\"}", 
+                Windows.Web.Http.IHttpContent jsonContent
+                    = new Windows.Web.Http.HttpStringContent(jsonString, 
                                 Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json");
 
                 var client = new Windows.Web.Http.HttpClient();

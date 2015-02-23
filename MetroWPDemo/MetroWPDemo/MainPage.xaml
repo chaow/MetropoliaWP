@@ -54,7 +54,7 @@
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
                         Grid.Column="1" Grid.Row="4">
-                <Button Name="ButtonIO" x:Uid="ButtonIO" 
+                <Button Name="ButtonIOTiles" x:Uid="ButtonIOTiles" 
                     HorizontalAlignment="Center" Margin="20"
                     Click="Button_Click"/>
 

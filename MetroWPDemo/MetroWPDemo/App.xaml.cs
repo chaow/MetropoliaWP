@@ -55,6 +55,7 @@ namespace MetroWPDemo
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
+            this.Resuming += OnResuming;
         }
 
         /// <summary>
@@ -154,6 +155,11 @@ namespace MetroWPDemo
 
             // TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        private void OnResuming(object sender, object e)
+        {
+            System.Diagnostics.Debug.WriteLine("App on resuming");
         }
     }
 }
