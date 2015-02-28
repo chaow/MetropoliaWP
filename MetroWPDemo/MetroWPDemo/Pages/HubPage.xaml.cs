@@ -134,5 +134,23 @@ namespace MetroWPDemo.Pages
                 = new Windows.UI.Popups.MessageDialog("About HUB");
             await msgbox.ShowAsync();
         }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("list view selection changed");
+
+            ListView lv = sender as ListView;
+            
+            if(lv == null)
+            {
+                return;
+            }
+
+            int index = lv.SelectedIndex;
+            System.Diagnostics.Debug.WriteLine("index: " + index);
+
+            var person = lv.SelectedItem as MetroWPDemo.Models.Person;
+            System.Diagnostics.Debug.WriteLine("person: " + person.ToString());
+        }
     }
 }

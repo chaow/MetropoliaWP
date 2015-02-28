@@ -62,6 +62,12 @@ namespace MetroWPDemo.Models
             }
         }
 
+        public override string ToString()
+        {
+            System.Diagnostics.Debug.WriteLine("Person name: " + Name);
+            return base.ToString();
+        }
+
     }
 
     /// <summary>

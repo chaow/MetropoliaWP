@@ -46,7 +46,8 @@
             <!-- localization -->
             <HubSection Header="Person1">
                 <DataTemplate>
-                    <ListView 
+                    <ListView
+                        SelectionChanged="ListView_SelectionChanged"
                         ItemsSource="{Binding PersonHub1ViewModel}" 
                         ItemTemplate="{StaticResource PersonListItemTemplate}"
                         />
