@@ -74,4 +74,17 @@
             </HubSection>
         </Hub>
     </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar Name="MyBottomAppBar">
+            <CommandBar.PrimaryCommands>
+
+            </CommandBar.PrimaryCommands>
+
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Name="AboutHub" Label="HUB" Click="HUB_Click"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
 </Page>

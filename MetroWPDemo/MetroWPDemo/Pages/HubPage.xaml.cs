@@ -26,11 +26,34 @@ namespace MetroWPDemo.Pages
 
         private Common.NavigationHelper _navigationHelper = null;
 
+        private AppBarButton _appBarAttachButton = null;
+
         public HubPage()
         {
             this.InitializeComponent();
             Loaded += HubPage_Loaded;
             _navigationHelper = new Common.NavigationHelper(this);
+        }
+
+        private void CreateAppBarButton()
+        {
+            if (_appBarAttachButton == null)
+            {
+                _appBarAttachButton = new AppBarButton();
+                _appBarAttachButton.Label = "Attach";
+                _appBarAttachButton.Click += AttachButton_Click; 
+                _appBarAttachButton.Icon = new SymbolIcon(Symbol.Attach);
+            }
+
+            MyBottomAppBar.PrimaryCommands.Clear();
+            MyBottomAppBar.PrimaryCommands.Add(_appBarAttachButton);
+        }
+
+        private async void AttachButton_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.UI.Popups.MessageDialog msgbox
+                = new Windows.UI.Popups.MessageDialog("Attach");
+            await msgbox.ShowAsync();
         }
 
         void HubPage_Loaded(object sender, RoutedEventArgs e)
@@ -46,6 +69,8 @@ namespace MetroWPDemo.Pages
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            CreateAppBarButton();
+
             System.Diagnostics.Debug.WriteLine("---Page OnNavigatedTo ---");
         }
 
@@ -101,6 +126,13 @@ namespace MetroWPDemo.Pages
                 }
             }
 
+        }
+
+        private async void HUB_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.UI.Popups.MessageDialog msgbox
+                = new Windows.UI.Popups.MessageDialog("About HUB");
+            await msgbox.ShowAsync();
         }
     }
 }
