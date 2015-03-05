@@ -90,6 +90,10 @@ namespace MetroWPDemo
             {
                 this.Frame.Navigate(typeof(Pages.IOPage));
             }
+            else if (ButtonSensor.Name.Equals(b.Name))
+            {
+                this.Frame.Navigate(typeof(Pages.SensorsPage));
+            }
         }
 
 

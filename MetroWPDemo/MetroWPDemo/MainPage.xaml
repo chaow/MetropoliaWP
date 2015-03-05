@@ -57,7 +57,9 @@
                 <Button Name="ButtonIOTiles" x:Uid="ButtonIOTiles" 
                     HorizontalAlignment="Center" Margin="20"
                     Click="Button_Click"/>
-
+                <Button Name="ButtonSensor" Content="Sensor"
+                    HorizontalAlignment="Center" Margin="20"
+                    Click="Button_Click"/>
             </StackPanel>
 
         </StackPanel>

@@ -93,9 +93,6 @@
     <Compile Include="Models\ComputerList.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="Pages\CameraCaptureControl.xaml.cs">
-      <DependentUpon>CameraCaptureControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\HubPage.xaml.cs">
       <DependentUpon>HubPage.xaml</DependentUpon>
     </Compile>
@@ -107,6 +104,9 @@
     </Compile>
     <Compile Include="Pages\NetworkPage.xaml.cs">
       <DependentUpon>NetworkPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SensorsPage.xaml.cs">
+      <DependentUpon>SensorsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\StackPage.xaml.cs">
       <DependentUpon>StackPage.xaml</DependentUpon>
@@ -121,6 +121,7 @@
     <Compile Include="UserControls\UserControlDemo.xaml.cs">
       <DependentUpon>UserControlDemo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\InternetHelper.cs" />
     <Compile Include="Utils\JsonHelper.cs" />
     <Compile Include="Utils\TileSetter.cs" />
     <Compile Include="ViewModel\HubPageViewModel.cs" />
@@ -154,10 +155,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Pages\CameraCaptureControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\FirstPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -179,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\SecondPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SensorsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
