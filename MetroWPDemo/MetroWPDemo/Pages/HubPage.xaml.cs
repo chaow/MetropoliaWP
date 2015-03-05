@@ -27,6 +27,7 @@ namespace MetroWPDemo.Pages
         private Common.NavigationHelper _navigationHelper = null;
 
         private AppBarButton _appBarAttachButton = null;
+        private AppBarButton _appBarMoneyButton = null;
 
         public HubPage()
         {
@@ -40,13 +41,29 @@ namespace MetroWPDemo.Pages
             if (_appBarAttachButton == null)
             {
                 _appBarAttachButton = new AppBarButton();
-                _appBarAttachButton.Label = "Attach";
+                _appBarAttachButton.Label = "attach";
                 _appBarAttachButton.Click += AttachButton_Click; 
                 _appBarAttachButton.Icon = new SymbolIcon(Symbol.Attach);
             }
 
+            if(_appBarMoneyButton == null)
+            {
+                _appBarMoneyButton = new AppBarButton();
+                _appBarMoneyButton.Label = "money";
+                _appBarMoneyButton.Click += MoneyButton_Click;
+                BitmapIcon moneyIcon = new BitmapIcon();
+                moneyIcon.UriSource = new Uri("ms-appx:///Assets/Money.png");
+                _appBarMoneyButton.Icon = moneyIcon;
+            }
+
             MyBottomAppBar.PrimaryCommands.Clear();
             MyBottomAppBar.PrimaryCommands.Add(_appBarAttachButton);
+            MyBottomAppBar.PrimaryCommands.Add(_appBarMoneyButton);
+        }
+
+        private void MoneyButton_Click(object sender, RoutedEventArgs e)
+        {
+            // some code here
         }
 
         private async void AttachButton_Click(object sender, RoutedEventArgs e)
