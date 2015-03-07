@@ -94,6 +94,10 @@ namespace MetroWPDemo
             {
                 this.Frame.Navigate(typeof(Pages.SensorsPage));
             }
+            else if(ButtonCustomUI.Name.Equals(b.Name))
+            {
+                this.Frame.Navigate(typeof(Pages.WinrtXamlPage));
+            }
         }
 
 
