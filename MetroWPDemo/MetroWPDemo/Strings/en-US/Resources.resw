@@ -150,6 +150,9 @@
   <data name="ButtonNetwork.Content" xml:space="preserve">
     <value>Network</value>
   </data>
+  <data name="ButtonSensorContent" xml:space="preserve">
+    <value>Sensor</value>
+  </data>
   <data name="ButtonStack.Content" xml:space="preserve">
     <value>Stack demo</value>
   </data>

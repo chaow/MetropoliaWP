@@ -17,10 +17,10 @@
 // 	This code contains a helper class exposing property representations
 // 	of the string resources defined in the specified .ResW file
 // 
-// 	Generated: 02/04/2015 18:26:43
+// 	Generated: 03/07/2015 12:14:29
 // </auto-generatedInfo>
 // --------------------------------------------------------------------------------------------------
-namespace MetroWPDemo.Strings.en_US
+namespace MetroWPDemo
 {
     using Windows.ApplicationModel.Resources;
     
@@ -53,6 +53,17 @@ namespace MetroWPDemo.Strings.en_US
         }
         
         /// <summary>
+        /// Localized resource similar to "Pin"
+        /// </summary>
+        public static string AppBarButtonPin
+        {
+            get
+            {
+                return resourceLoader.GetString("AppBarButtonPin");
+            }
+        }
+        
+        /// <summary>
         /// Localized resource similar to "MetroWPDemo"
         /// </summary>
         public static string ApplicationName
@@ -60,6 +71,17 @@ namespace MetroWPDemo.Strings.en_US
             get
             {
                 return resourceLoader.GetString("ApplicationName");
+            }
+        }
+        
+        /// <summary>
+        /// Localized resource similar to "Sensor"
+        /// </summary>
+        public static string ButtonSensorContent
+        {
+            get
+            {
+                return resourceLoader.GetString("ButtonSensorContent");
             }
         }
         
