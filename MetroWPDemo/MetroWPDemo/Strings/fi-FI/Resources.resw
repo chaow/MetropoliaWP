@@ -150,8 +150,14 @@
   <data name="ButtonNetwork.Content" xml:space="preserve">
     <value>FI-Network</value>
   </data>
+  <data name="ButtonSensor" xml:space="preserve">
+    <value>FI-Sensor</value>
+  </data>
   <data name="ButtonStack.Content" xml:space="preserve">
     <value>FI-stack demo</value>
+  </data>
+  <data name="ButtonWinrtXaml" xml:space="preserve">
+    <value>FI-Winrt XAML</value>
   </data>
   <data name="DebugContent" xml:space="preserve">
     <value>FI-DebugCode</value>

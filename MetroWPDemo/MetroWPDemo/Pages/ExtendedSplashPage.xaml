@@ -9,6 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Image x:Name="extendedSplashImage" Source="Assets/SplashScreen.png"/>
+        <Image x:Name="extendedSplashImage" Stretch="Uniform"
+                Source="ms-appx:///Assets/SplashScreen.png"/>
     </Grid>
 </Page>

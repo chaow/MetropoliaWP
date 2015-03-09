@@ -57,14 +57,14 @@
                 <Button Name="ButtonIOTiles" x:Uid="ButtonIOTiles" 
                     HorizontalAlignment="Center" Margin="20"
                     Click="Button_Click"/>
-                <Button Name="ButtonSensor" Content="Sensor"
+                <Button Name="ButtonSensor" Content="{Binding ButtonSensor, Source={StaticResource LocalizedStrings}}" 
                     HorizontalAlignment="Center" Margin="20"
                     Click="Button_Click"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
                         Grid.Column="1" Grid.Row="5">
-                <Button Name="ButtonCustomUI" Content="Winrt Xaml" 
+                <Button Name="ButtonCustomUI" Content="{Binding ButtonWinrtXaml, Source={StaticResource LocalizedStrings}}" 
                     HorizontalAlignment="Center" Margin="20"
                     Click="Button_Click"/>
    

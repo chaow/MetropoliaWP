@@ -87,15 +87,23 @@ namespace MetroWPDemo
                 // TODO: change this value to a cache size that is appropriate for your application
                 rootFrame.CacheSize = 1;
 
-                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
+                //if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
+                //{
+                //    // TODO: Load state from previously suspended application
+                //    await Common.SuspensionManager.RestoreAsync();
+                //    System.Diagnostics.Debug.WriteLine("restore data");
+                //}
+
+                if (e.PreviousExecutionState != ApplicationExecutionState.Running)
                 {
-                    // TODO: Load state from previously suspended application
-                    await Common.SuspensionManager.RestoreAsync();
-                    System.Diagnostics.Debug.WriteLine("restore data");
+                    bool loadState = (e.PreviousExecutionState == ApplicationExecutionState.Terminated);
+                    Pages.ExtendedSplashPage extendedSplashPage = new Pages.ExtendedSplashPage(e.SplashScreen, loadState);
+                    rootFrame.Content = extendedSplashPage;
+                    Window.Current.Content = extendedSplashPage;
                 }
 
                 // Place the frame in the current Window
-                Window.Current.Content = rootFrame;
+                //Window.Current.Content = rootFrame;
             }
 
             if (rootFrame.Content == null)

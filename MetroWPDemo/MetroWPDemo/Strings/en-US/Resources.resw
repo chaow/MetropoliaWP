@@ -150,11 +150,17 @@
   <data name="ButtonNetwork.Content" xml:space="preserve">
     <value>Network</value>
   </data>
+  <data name="ButtonSensor" xml:space="preserve">
+    <value>Sensor</value>
+  </data>
   <data name="ButtonSensorContent" xml:space="preserve">
     <value>Sensor</value>
   </data>
   <data name="ButtonStack.Content" xml:space="preserve">
     <value>Stack demo</value>
+  </data>
+  <data name="ButtonWinrtXaml" xml:space="preserve">
+    <value>Winrt XAML</value>
   </data>
   <data name="DebugContent" xml:space="preserve">
     <value>DebugCode</value>

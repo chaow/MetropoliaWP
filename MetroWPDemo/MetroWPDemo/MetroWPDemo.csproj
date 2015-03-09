@@ -216,7 +216,7 @@
     <PRIResource Include="Strings\en-US\Resources.resw">
       <Generator>ReswFileCodeGenerator</Generator>
       <LastGenOutput>Resources.cs</LastGenOutput>
-      <CustomToolNamespace>MetroWPDemo</CustomToolNamespace>
+      <CustomToolNamespace>MetroWPDemo.Strings</CustomToolNamespace>
     </PRIResource>
   </ItemGroup>
   <ItemGroup>

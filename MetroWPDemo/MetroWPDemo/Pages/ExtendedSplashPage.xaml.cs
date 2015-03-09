@@ -25,29 +25,45 @@ namespace MetroWPDemo.Pages
     public sealed partial class ExtendedSplashPage : Page
     {
 
-        private SplashScreen splash; // Variable to hold the splash screen object.
-        internal Frame rootFrame;
+        private SplashScreen _splash; // Variable to hold the splash screen object.
+        internal Frame _rootFrame;
 
         public ExtendedSplashPage(SplashScreen splashscreen, bool loadState)
         {
             InitializeComponent();
 
-            splash = splashscreen;
+            _splash = splashscreen;
 
+            // Create a Frame to act as the navigation context
+            _rootFrame = new Frame();
+            
+            Loaded += ExtendedSplashPage_Loaded;
 
+            // Restore the saved session state if necessary
+            RestoreStateAsync(loadState);
+        }
+
+        private async void RestoreStateAsync(bool loadState)
+        {
+            if (loadState)
+            {
+                await Common.SuspensionManager.RestoreAsync();
+                System.Diagnostics.Debug.WriteLine("restore data");
+            }
         }
 
         private async void ExtendedSplashPage_Loaded(object sender, RoutedEventArgs e)
         {
-            //await System.Threading.Tasks.Task.Delay(TimeSpan.FromSeconds(3));
+            Windows.UI.ViewManagement.StatusBar statusBar = Windows.UI.ViewManagement.StatusBar.GetForCurrentView();
+            // Hide the status bar
+            await statusBar.HideAsync();
 
-            // Create a Frame to act as the navigation context
-            rootFrame = new Frame();
+            await System.Threading.Tasks.Task.Delay(TimeSpan.FromSeconds(3));
 
             // Navigate to mainpage
-            rootFrame.Navigate(typeof(Pages.MainPage));
+            _rootFrame.Navigate(typeof(Pages.MainPage));
             // Place the frame in the current Window
-            Window.Current.Content = rootFrame;            
+            Window.Current.Content = _rootFrame;            
         }
 
         /// <summary>
@@ -57,7 +73,6 @@ namespace MetroWPDemo.Pages
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            //Loaded += ExtendedSplashPage_Loaded;
         }
     }
 }
