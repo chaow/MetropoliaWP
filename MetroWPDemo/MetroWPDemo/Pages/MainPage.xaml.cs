@@ -98,6 +98,10 @@ namespace MetroWPDemo.Pages
             {
                 this.Frame.Navigate(typeof(Pages.WinrtXamlPage));
             }
+            else if (ButtonCamera.Name.Equals(b.Name))
+            {
+                this.Frame.Navigate(typeof(Pages.CameraPage));
+            }
         }
 
 

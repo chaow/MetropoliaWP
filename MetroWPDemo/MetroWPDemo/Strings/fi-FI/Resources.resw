@@ -135,6 +135,9 @@
   <data name="ButtonAppLifeCycle.Content" xml:space="preserve">
     <value>FI-App life cycle</value>
   </data>
+  <data name="ButtonCamera" xml:space="preserve">
+    <value>FI-Camera</value>
+  </data>
   <data name="ButtonHttpGet.Content" xml:space="preserve">
     <value>FI-Http Get</value>
   </data>

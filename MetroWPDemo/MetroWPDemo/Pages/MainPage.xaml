@@ -67,7 +67,9 @@
                 <Button Name="ButtonCustomUI" Content="{Binding ButtonWinrtXaml, Source={StaticResource LocalizedStrings}}" 
                     HorizontalAlignment="Center" Margin="20"
                     Click="Button_Click"/>
-   
+                <Button Name="ButtonCamera" Content="{Binding ButtonCamera, Source={StaticResource LocalizedStrings}}" 
+                    HorizontalAlignment="Center" Margin="20"
+                    Click="Button_Click"/>
             </StackPanel>            
             
         </StackPanel>

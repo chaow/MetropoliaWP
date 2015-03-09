@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="MetroWPDemo.Pages.CameraPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MetroWPDemo.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <CaptureElement Name="CapturePreview" Grid.Row="0"  />
+        <Image x:Name="ImagePreivew" Grid.Row="1"  />
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Bottom">
+            <Button Click="StartCapturePreview_Click" Content="Start Preview"  />
+            <Button Click="StopCapturePreview_Click" Content="Stop Preview" />
+            <Button Click="CapturePhoto_Click" Content="Capture Photo" />
+        </StackPanel>
+        
+    </Grid>
+</Page>

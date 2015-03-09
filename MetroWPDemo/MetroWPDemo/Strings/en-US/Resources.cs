@@ -17,7 +17,7 @@
 // 	This code contains a helper class exposing property representations
 // 	of the string resources defined in the specified .ResW file
 // 
-// 	Generated: 03/09/2015 21:40:22
+// 	Generated: 03/09/2015 22:18:26
 // </auto-generatedInfo>
 // --------------------------------------------------------------------------------------------------
 namespace MetroWPDemo.Strings
@@ -71,6 +71,17 @@ namespace MetroWPDemo.Strings
             get
             {
                 return resourceLoader.GetString("ApplicationName");
+            }
+        }
+        
+        /// <summary>
+        /// Localized resource similar to "Camera"
+        /// </summary>
+        public static string ButtonCamera
+        {
+            get
+            {
+                return resourceLoader.GetString("ButtonCamera");
             }
         }
         
