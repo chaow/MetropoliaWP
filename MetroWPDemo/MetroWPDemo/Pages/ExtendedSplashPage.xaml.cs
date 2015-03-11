@@ -25,6 +25,10 @@ namespace MetroWPDemo.Pages
     public sealed partial class ExtendedSplashPage : Page
     {
 
+        // Reference:
+        // https://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh868191.aspx
+
+
         private SplashScreen _splash; // Variable to hold the splash screen object.
         internal Frame _rootFrame;
 
